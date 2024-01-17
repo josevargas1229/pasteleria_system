@@ -108,20 +108,23 @@ color: #75baff;
         <label for="nombre">Nombre:</label>
         <br>
         <input type="text" id="nombre" name="txtNombreP" required placeholder="Ingrese su nombre"
-        pattern="^[A-Z][a-z]+(?: [A-Z][a-z]+)*$">
+        pattern="^[A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]+(?: [A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]+)*$"
+        title="Escriba cada palabra con la inicial mayúscula y sin tildes">
     </div>
     
     <div class="form-group">
         <label for="ap">Apellido Paterno:</label>
         <br>
         <input type="text" id="ap" name="txtAP" required placeholder="Ingrese su apellido paterno"
-        pattern="^[A-Z][a-z]+$">
+        pattern="^[A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]+$"
+        title="Ingrese su apellido con la inicial mayúscula">
     </div>
     <div class="form-group">
         <label for="ap">Apellido Materno:</label>
         <br>
         <input type="text" id="am" name="txtAM" required placeholder="Ingrese su apellido materno"
-        pattern="^[A-Z][a-z]+$">
+        pattern="^[A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]+$"
+        title="Ingrese su apellido con la inicial mayúscula">
     </div>
     <div class="form-group">
         <label for="correo">Correo electrónico</label>
@@ -174,7 +177,8 @@ color: #75baff;
     <div>
         <label for="respuesta"> Respuesta:</label>
         <br>
-        <input type="text" id="respuesta" name="txtRespuesta" required placeholder="Ingrese su respuesta">
+        <input type="text" id="respuesta" name="txtRespuesta" required placeholder="Ingrese su respuesta"
+        pattern="^[A-Za-z ]+$">
     </div>
                 <br>
     <div class="form-group">
