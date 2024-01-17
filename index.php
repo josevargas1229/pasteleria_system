@@ -8,7 +8,7 @@ if($verificaclase && $verificametodo){
     $metodo = $_GET['metodo'];//toma la funcion de la url
     $rutaArchivo = "controller/".$clase.".php";//concatena la clase con la carpeta para ubicar el archivo a usar
     require_once $rutaArchivo; 
-    $objeto = new $clase; //Crea el objeto de la clase
+    $objeto = new $clase; //Crea el objeto de la clase 
     $objeto->$metodo();// llama a la función desde el objeto
 }
 else

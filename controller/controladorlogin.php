@@ -2,6 +2,8 @@
 session_start(); //Con esto indicamos que se estarán manejando sesiones guardadas para utilizarlas en todo el sitio
 include_once 'model/clsLogin.php';
 include_once 'model/clsProducto.php';
+include_once 'utilities/EmailSender.php';
+use Utilities\EmailSender;
 
 class controladorlogin
 {
@@ -78,5 +80,17 @@ class controladorlogin
         $vista = "view/public/frmContenidoComercial.php";
         include_once("view/frmPublic.php");
         session_destroy();
+    }
+    public function mandarEmail() {
+        $emailSender = new EmailSender();
+        $to = 'asrockcine@gmail.com';
+        $subject = 'Recuperación de contraseña';
+        $body = 'Hola, aquí está tu nueva contraseña: <strong>123</strong>';
+
+        if ($emailSender->sendEmail($to, $subject, $body)) {
+            echo 'Correo enviado exitosamente.';
+        } else {
+            echo 'Error al enviar el correo.';
+        }
     }
 }

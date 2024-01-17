@@ -38,6 +38,7 @@ class controladorCliente
             $Usuario = $_POST['txtUsuario'];
 			$pregunta=$_POST['pregunta'];
 			$respuesta=$_POST['txtRespuesta'];
+			$respuesta = strtolower($respuesta);
 			$Cliente->AltaCliente($nombre, $AP, $AM, $Correo, $NoTel, $Usuario, $pass,$pregunta,$respuesta);
 			$Consulta = $Cliente->ConsultaClientes();
 			$vista = "view/access/frmLogin.php";
