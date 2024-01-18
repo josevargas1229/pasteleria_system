@@ -39,10 +39,11 @@ class controladorprincipal
 		$vista = "view/access/frmLogin_.php";
         include_once("view/access/frmLogin_.php");
 	}
+	
 	public function recuperacion()
 	{
 		
-		$vista = "view/access/frmrecuperacion.php";
+		$vista = "view/recuperaciones/frmanalisis.php";
 		include_once("view/frmPublic.php");
 	}
 	public function recuperaciongmail()
@@ -57,6 +58,7 @@ class controladorprincipal
 		$vista = "view/recuperaciones/frmpreguntas.php";
 		include_once("view/frmPublic.php");
 	}
+	
 	
 	
 }

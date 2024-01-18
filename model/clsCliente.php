@@ -5,7 +5,6 @@ class clsCliente extends clsconexion
 {
 	public function AltaCliente( $nombre, $AP, $AM, $Correo,$NoTel, $Usuario,$pass,$pregunta,$respuesta) ////function for admin and user
 	{
-
 		$sql = "call Sp_InsertClient('$nombre','$AP','$AM','$Correo','$NoTel','$Usuario','$pass','$pregunta','$respuesta');";
 		$resultado = $this->conectar->query($sql);
 		return $resultado;
@@ -40,3 +39,4 @@ class clsCliente extends clsconexion
 		return $resultado;
 	}
 }
+	

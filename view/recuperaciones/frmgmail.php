@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <div style="text-align: center; margin-top: 20vh;">
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <form method="post" action="/Sistema_Pasteleria/index?clase=controladorEmail&metodo=mandarEmail">
         <label for="correo">Correo Electrónico:</label>
         <input type="text" id="correo" name="correo" required>
         <br>

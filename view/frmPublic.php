@@ -38,9 +38,6 @@
 
     }
 
-    .carrito-formulario button:hover {
-      /* background-color: #e65400; */
-    }
   </style>
 
 <body>
