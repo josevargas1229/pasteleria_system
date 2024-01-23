@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -33,28 +34,26 @@
             background-color: #4CAF50;
             color: #fff;
         }
+        input[type="text"]{
+            width: 350px;
+        }
     </style>
 </head>
 <body>
 
-<h2>Recuperación de Contraseña</h2>
+<h2>Token de recuperación</h2>
 <br><br>
-<form action="/Sistema_Pasteleria/index?clase=controladorprincipal&metodo=recuperar" method="post">
+<form method="post" action="/Sistema_Pasteleria/index?clase=controladorValidacion&metodo=token" autocomplete="off">
     
-    <label for="metodo">Seleccione el método de recuperación:</label>
-    <select name="metodo" id="metodo">
-        <option value="email">Correo</option>
-        <option value="pregunta">Pregunta secreta</option>
-        <option value="token">Token</option>
-    </select>   
-    <br><br>
-    <?php echo 'El correo se mandará a: '. $email?>
-    <?php echo '<input type="hidden" name="id" value="' . $id . '">'; ?>
-    <?php echo '<input type="hidden" name="correo" value="' . $email . '">'; ?>
-    <br><br>
-    <input type="submit" value="Enviar">
+
+    <div class="form-group">
+        <label for="token">Ingrese el token:</label>
+        <br><br>
+        <input type="text" id="token" name="txtToken" required placeholder="Ingrese el token enviado a su correo">
+    </div><br>
+    <div class="form-group">
+        <input type="submit" value="Enviar">
+    </div>
 </form>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-<?php echo isset($mensaje)?$mensaje:'' ?>
 </body>
 </html>

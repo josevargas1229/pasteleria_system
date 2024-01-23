@@ -3,10 +3,13 @@
 namespace Utilities;
 require_once "vendor/autoload.php";
 
+include_once 'utilities\TokenGenerator.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 use Dotenv\Dotenv;
+use TokenGenerator;
+
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../'); 
 $dotenv->load();
 
@@ -32,7 +35,7 @@ class EmailSender {
         $this->mail->isHTML(true);
     }
 
-    public function sendEmail($to, $subject, $body) {
+    private function sendEmail($to, $subject, $body) {
         try {
             // Destinatario
             $this->mail->addAddress($to);
@@ -43,10 +46,25 @@ class EmailSender {
 
             // Enviar el correo
             $this->mail->send();
-            echo "Correo enviado";
             return true;
         } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: ".$this->mail->ErrorInfo;
+            return false;
         }
+    }
+
+    public function recuperarPass($to,$token){
+        $subject="Recuperación de contraseña";
+        $body="Haz click en el siguiente enlace para recuperar tu contraseña: <a href='http://localhost/Sistema_Pasteleria/index?clase=controladorValidacion&metodo=cambiarPass&token=$token'>Recupera tu contraseña</a>";
+        return $this->sendEmail($to,$subject,$body);
+    }
+    public function validarEmail($to){
+        $subject="Validación de email";
+        $body="";
+        return $this->sendEmail($to,$subject,$body);
+    }
+    public function mandarToken($to,$token){
+        $subject="Token de recuperación";
+        $body="Su token de recuperación es <strong> $token</strong>";
+        return $this->sendEmail($to,$subject,$body);
     }
 }

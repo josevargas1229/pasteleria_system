@@ -38,5 +38,10 @@ class clsCliente extends clsconexion
 		$resultado=$this->conectar->query($sql);
 		return $resultado;
 	}
+	public function updatePass($id,$pass){
+		$sql="CALL Sp_CambiarPass('$id','$pass')";
+		$resultado=$this->conectar->query($sql);
+		return $resultado;
+	}
 }
 	

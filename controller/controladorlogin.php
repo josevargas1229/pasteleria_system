@@ -79,4 +79,5 @@ class controladorlogin
         include_once("view/frmPublic.php");
         session_destroy();
     }
+    
 }
